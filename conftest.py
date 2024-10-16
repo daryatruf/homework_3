@@ -1,12 +1,17 @@
 import pytest
 from selene import browser
 
-@pytest.fixture(scope='session')
-def browser():
-    browser.open('https://google.com')
+
+@pytest.fixture
+def browser_size():
+    browser.config.window_height = 720
+    browser.config.window_width = 1280
+
+
+@pytest.fixture
+def browser_open():
+    browser.open('https://ya.ru/')
 
     yield
 
-@pytest.fixture(scope='session')
-def browser_size(browser):
-    driver.set_window_size(1200, 800)
+    browser.quit()
