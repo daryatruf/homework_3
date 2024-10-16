@@ -7,6 +7,6 @@ def test_search(browser_size, browser_open):
         have.text('User-oriented Web UI browser tests in Python'))
 
 
-def test_not_found(browser_size, browser_open):
+def test_no_result(browser_size, browser_open):
     browser.element('[name="text"]').should(be.blank).type(';lkdcfojwedgvfhjbdfs').press_enter()
     browser.element('[class="EmptySearchResults-Title"]').should(have.text('Ничего не нашли'))
